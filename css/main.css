@@ -25,12 +25,14 @@ body{
   height: 100%;
   background-color: rgba(0,0,0,.8);
 }
-
+figure img{
+	max-width:100%;
+}
 .lightbox figure {
   display: inline-block;
   position: relative;
   z-index: 5;
-  width: 80%;
+  width: 100%;
   max-width: 800px;
 }
 
@@ -39,8 +41,7 @@ body{
   display: inline-block;
   color:#fff;
   margin: 15px 10px;
-  cursor: pointer;
- 
+  cursor: pointer; 
 }
 
 .prev {
