@@ -4,6 +4,83 @@ body{
     background-image: url("../img/start.png");
 }
 
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 25px 0;
+  display: none;
+  overflow-y: auto;
+}
+
+.overlay {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.8);
+}
+
+.lightbox figure {
+  display: inline-block;
+  position: relative;
+  z-index: 5;
+  width: 80%;
+  max-width: 800px;
+}
+
+
+.next, .prev {
+  display: inline-block;
+  color:#fff;
+  margin: 15px 10px;
+  cursor: pointer;
+ 
+}
+
+.prev {
+  left: 0;
+}
+
+/*
+
+.image {
+float:left;
+max-height:100%;
+max-width:100%
+
+}
+
+.popup {
+position: absolute;
+height:100%;
+width:100%;
+top:0;
+left:0;
+
+}
+
+.popup_bg {
+background:rgba(0,0,0,0.4);
+position:absolute;
+z-index:1;
+height:100%;
+width:100%;
+}
+
+.popup_img {
+text-align:center;	
+position: relative;
+z-index:3;
+left:22%;
+max-width:75%;
+margin:1% 0 0 0;
+}*/
 header ul.social li a,
 header nav ul li a{
     transition:all .1s linear;
@@ -132,7 +209,7 @@ header nav ul li a{
         background-image: url("../img/menu.png");
         float: left;
         overflow: hidden;
-        z-index: 9999;
+        z-index: 1;
     }
 
     header .logo{

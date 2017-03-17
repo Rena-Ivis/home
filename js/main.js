@@ -12,4 +12,81 @@ $(document).ready(function(){
         return false;
     });
 	});
-	
+/*	
+$(document).ready(function() { // Ждём загрузки страницы
+
+$(".image").click(function(){    // Событие клика на маленькое изображение
+var img = $(this);    // Получаем изображение, на которое кликнули
+var src = img.attr('src'); // Достаем из этого изображения путь до картинки
+$("body").append("<div class='popup'>"+ //Добавляем в тело документа разметку всплывающего окна
+"<div class='popup_bg'></div>"+ // Блок, который будет служить фоном затемненным
+"<img src='"+src+"' class='popup_img' />"+ // Само увеличенное фото
+"</div>"); 
+$(".popup").fadeIn(800); // Медленно выводим изображение
+$(".popup_bg").click(function(){    // Событие клика на затемненный фон       
+$(".popup").fadeOut(800);    // Медленно убираем всплывающее окно
+setTimeout(function() {    // Выставляем таймер
+$(".popup").remove(); // Удаляем разметку всплывающего окна
+
+}, 800);
+});
+
+*/
+$(document).ready(function($) {
+  var $li = $('.container').find('> div'),
+      $links = $li.find('> a'),
+      $lightbox = $('.lightbox'),
+      $next = $('.next'),
+      $prev = $('.prev'),
+      $overlay = $('.overlay'),
+      liIndex,
+      targetImg;
+  
+
+ 
+
+  function replaceImg(src) {
+    $lightbox.find('img').attr('src', src);
+  }
+
+  function getHref(index) {
+    return $li.eq(index).find('>a').attr('href');
+  }
+
+  function closeLigtbox() {
+    $lightbox.fadeOut();
+  }
+
+  $overlay.click(closeLigtbox);
+
+  $links.click(function(e) {
+    e.preventDefault();
+    targetImg = $(this).attr('href');
+    liIndex = $(this).parent().index();
+    replaceImg(targetImg);
+    $lightbox.fadeIn();
+  });
+
+   $next.click( function() {  
+    if ( (liIndex + 1) < $li.length ) { 
+      targetImg = getHref(liIndex + 1);
+      liIndex ++;
+    } else {
+      targetImg = getHref(0);
+      liIndex = 0;
+    }
+    replaceImg(targetImg);
+  });
+
+   $prev.click( function() {  
+    if ( (liIndex) > 0 ) { 
+      targetImg = getHref(liIndex - 1);
+      liIndex --;
+    } else {
+      targetImg = getHref($li.length - 1);
+      liIndex = $li.length - 1;
+    }
+    replaceImg(targetImg);
+  });
+  
+})(jQuery);
