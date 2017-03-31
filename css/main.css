@@ -33,15 +33,15 @@ figure img{
   position: relative;
   z-index: 5;
   width: 100%;
-  max-width: 800px;
+  max-width: 500px;
+  margin:0 -40px;
 }
-
 
 .next, .prev {
   display: inline-block;
   color:#fff;
   margin: 15px 10px;
-  cursor: pointer; 
+  cursor: pointer;
 }
 
 .prev {
@@ -141,7 +141,7 @@ header nav ul li a{
         width: 25%;
     }
     .container {
-        width: 60%;
+        width: 80%;
         margin: 3% 3% 3% 19%;
         overflow: hidden;
         display: inline-flex;
